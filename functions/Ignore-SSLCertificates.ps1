@@ -1,4 +1,11 @@
-﻿function Ignore-SSLCertificates
+﻿<#
+.SYNOPSIS
+Ignores TLS errors 
+.DESCRIPTION
+Ignores TLS errors
+#>
+
+function Ignore-SSLCertificates
 {
     $Provider = New-Object Microsoft.CSharp.CSharpCodeProvider
     $Compiler = $Provider.CreateCompiler()

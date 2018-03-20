@@ -9,6 +9,14 @@
 		[string]$DestinationProbe
 		)
 
+    if (!$auth){
+        write-host "No Auth string is set."
+        $PRTGHost= Read-Host "PRTG Server"
+        $User= Read-Host "PRTG User"
+        $Password= Read-Host "PRTG User Password"
+        Set-PrtgAuth -PRTGHost $PRTGHost -User $User -Password $Password$auth
+        }
+
     $Source = Get-PrtgSensors -Device $SourceDevice -Probe $SourceProbe
     $Destination = Get-PrtgDevices -Probe $DestinationProbe -Group $DestinationGroup
 

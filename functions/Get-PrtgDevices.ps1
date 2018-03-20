@@ -8,6 +8,14 @@
 		[string]$ID
 		)
 
+    if (!$auth){
+        write-host "No Auth string is set."
+        $PRTGHost= Read-Host "PRTG Server"
+        $User= Read-Host "PRTG User"
+        $Password= Read-Host "PRTG User Password"
+        Set-PrtgAuth -PRTGHost $PRTGHost -User $User -Password $Password$auth
+        }
+
 	$url = "https://$PRTGHost/api/table.xml?content=devices&output=xml&columns=objid,probe,group,device,host&$auth"
 	$request = Invoke-WebRequest -Uri $url -MaximumRedirection 0
 	[xml]$xml = $request
