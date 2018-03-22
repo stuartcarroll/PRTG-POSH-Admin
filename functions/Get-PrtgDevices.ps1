@@ -29,6 +29,9 @@
         elseif ($Name -and $Probe) {
 			$xml.devices.Item | ? { $_.device -eq $Name } | ? { $_.probe -eq $Probe }
 		}
+        elseif ($Group -and $Probe) {
+            $xml.devices.Item | ? { $_.group -eq $Group } | ? { $_.probe -eq $Probe }
+        }
         elseif ($Name) {
 			$xml.devices.Item| ? { $_.device -eq $Name }
 		}

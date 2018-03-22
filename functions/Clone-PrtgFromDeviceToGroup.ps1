@@ -1,4 +1,4 @@
-﻿function Clone-PrtgFromDeviceToGroup
+﻿function Delete-AllSensorsFrom
 {
 	Param(
         [Parameter(Mandatory=$true)]
@@ -37,11 +37,10 @@
             write-host "Cloned Sensor ID:"
             write-host $SenObjid
             }
-            else{
             write-host "Cloned Sensor Name:"
-            write-host $Sensor.sensor
+            write-host $SenName
             write-host "Cloned Sensor ID:"
-            write-host $Sensor.objid
+            write-host $SenObjid
 
             $url = "https://$PRTGHost/api/duplicateobject.htm?id=$Senobjid&name=$SenName&targetid=$DevObjid&$auth"
 	        $request = Invoke-WebRequest -Uri $url -MaximumRedirection 0 -ErrorAction ignore
