@@ -36,7 +36,7 @@
             write-host $SenName
             write-host "Cloned Sensor ID:"
             write-host $SenObjid
-            }
+            } else {
             write-host "Cloned Sensor Name:"
             write-host $SenName
             write-host "Cloned Sensor ID:"
@@ -49,4 +49,4 @@
 
         }
     }
-}    
+}
